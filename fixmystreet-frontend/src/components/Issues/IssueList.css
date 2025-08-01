@@ -1,0 +1,178 @@
+/* IssueList.css - Glossy, Animated, Responsive with New Gradient and Drift Background */
+
+.issue-list-container {
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #06beb6 0%, #48b1bf 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.issue-list-container::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.07) 0%,
+    transparent 70%
+  );
+  animation: drift 20s linear infinite;
+  z-index: 1;
+}
+
+.issue-list-container h3 {
+  font-size: 2.2rem;
+  color: #1e3a5f;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.no-issues {
+  font-size: 1.2rem;
+  color: #374151;
+  z-index: 2;
+  animation: fadeIn 1s ease-out;
+}
+
+.issue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  z-index: 2;
+}
+
+.issue-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: fadeInUp 1s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.issue-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+}
+
+.issue-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.issue-content {
+  padding: 1.5rem;
+  color: #1f2937;
+}
+
+.issue-content h5 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #0f172a;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+  50% {
+    transform: translate(10%, -10%) rotate(180deg);
+  }
+  100% {
+    transform: translate(0%, 0%) rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .issue-list-container {
+    padding: 1.25rem;
+  }
+
+  .issue-content {
+    padding: 1rem;
+  }
+
+  .issue-card {
+    border-radius: 12px;
+  }
+
+  .issue-content h5 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .issue-list-container {
+    background: linear-gradient(135deg, #0f2027, #203a43);
+  }
+
+  .issue-card {
+    background: rgba(30, 30, 30, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .issue-content {
+    color: #e5e7eb;
+  }
+
+  .issue-content h5 {
+    color: #f3f4f6;
+  }
+
+  .no-issues {
+    color: #cbd5e1;
+  }
+
+  .issue-list-container h3 {
+    color: #f0fdfa;
+  }
+}

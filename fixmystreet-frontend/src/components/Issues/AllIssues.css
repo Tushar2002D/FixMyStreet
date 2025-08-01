@@ -1,0 +1,153 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(270deg, #150038, #220052, #36008b);
+  background-size: 600% 600%;
+  animation: moveGradient 20s ease infinite;
+  color: #fff;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  background: linear-gradient(to right, #ffe29f, #ffa99f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-body h5 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #ffe29f;
+}
+
+.card-body p {
+  margin: 0.5rem 0;
+  color: #f9f9f9;
+}
+
+select {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background 0.3s ease;
+}
+
+select:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+label {
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.filter-wrapper {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+/* Filter Dropdown (Top Bar) */
+#filter.form-select {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+
+#filter.form-select:focus {
+  outline: none;
+  border-color: #ffa99f;
+  box-shadow: 0 0 10px rgba(255, 169, 159, 0.6);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Status Dropdown (Inside Card) */
+.card .form-select {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background: rgba(0, 0, 0, 0.05);
+  color: #333;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card .form-select:focus {
+  outline: none;
+  border-color: #5e00a8;
+  box-shadow: 0 0 8px rgba(94, 0, 168, 0.3);
+}
+
+/* Light Mode Theme Override (if you have dark backgrounds) */
+body {
+  background-color: #f8f9fa; /* Bootstrap light gray background */
+}
+
+.card {
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}

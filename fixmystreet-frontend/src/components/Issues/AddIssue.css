@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+.add-issue-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+  position: relative;
+  padding: 2rem;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+.add-issue-container::before {
+  content: "";
+  position: absolute;
+  width: 250%;
+  height: 250%;
+  top: -75%;
+  left: -75%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.07) 0%,
+    transparent 70%
+  );
+  animation: swirl 25s infinite linear;
+  z-index: 1;
+}
+
+.issue-form,
+.issue-form * {
+  box-sizing: border-box;
+}
+
+.issue-form {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 0.6s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.issue-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #7f1d1d;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.issue-form input,
+.issue-form textarea,
+.issue-form select {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1.2rem;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 2px solid #fde0d5;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.issue-form input:focus,
+.issue-form textarea:focus,
+.issue-form select:focus {
+  border-color: #fb923c;
+  box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.2);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.issue-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.issue-form button {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f43f5e 0%, #fb923c 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.issue-form button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.issue-form button:hover::before {
+  left: 100%;
+}
+
+.issue-form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(251, 146, 60, 0.3);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes swirl {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .issue-form {
+    padding: 1.75rem;
+    border-radius: 16px;
+  }
+
+  .issue-form h2 {
+    font-size: 1.6rem;
+  }
+
+  .issue-form input,
+  .issue-form textarea,
+  .issue-form select {
+    padding: 0.9rem;
+  }
+
+  .issue-form button {
+    font-size: 1rem;
+    padding: 0.9rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .issue-form {
+    padding: 1rem;
+    border-radius: 14px;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .add-issue-container {
+    background: linear-gradient(135deg, #1e1e20, #302e2f);
+  }
+
+  .issue-form {
+    background: rgba(30, 30, 30, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .issue-form h2 {
+    color: #fde68a;
+  }
+
+  .issue-form input,
+  .issue-form textarea,
+  .issue-form select {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .issue-form input::placeholder,
+  .issue-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .issue-form button {
+    background: linear-gradient(135deg, #fb7185 0%, #f97316 100%);
+  }
+}
