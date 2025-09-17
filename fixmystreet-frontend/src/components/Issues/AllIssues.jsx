@@ -11,7 +11,9 @@ const AllIssues = () => {
     const token = localStorage.getItem("token");
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/issues${status ? `?status=${status}` : ""}`,
+        `https://fixmystreet-1.onrender.com/api/issues${
+          status ? `?status=${status}` : ""
+        }`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setIssues(res.data);
@@ -28,7 +30,7 @@ const AllIssues = () => {
     const token = localStorage.getItem("token");
     try {
       const res = await axios.patch(
-        `http://localhost:5000/api/issues/${id}/status`,
+        `https://fixmystreet-1.onrender.com/api/issues/${id}/status`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -10,7 +10,7 @@ const issueSchema = new mongoose.Schema(
       enum: ["garbage", "road", "water", "electricity", "other"],
       default: "other",
     },
-    imageURL: { type: String, default: "" }, // Default to empty string if no file is passed
+    imageURL: { type: String, default: "" },
     location: {
       lat: Number,
       lng: Number,

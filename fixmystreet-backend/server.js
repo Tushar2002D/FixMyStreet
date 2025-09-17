@@ -14,7 +14,7 @@ app.use("/api/auth", authRoutes);
 app.get("/", (req, res) => res.send("API running..."));
 
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.Mongo_URI)
   .then(() => {
     app.listen(process.env.PORT, () =>
       console.log(`✅ Server running at http://localhost:${process.env.PORT}`)

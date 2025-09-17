@@ -10,9 +10,12 @@ const IssueList = () => {
     const fetchIssues = async () => {
       const token = localStorage.getItem("token");
       try {
-        const res = await axios.get("http://localhost:5000/api/issues/my", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const res = await axios.get(
+          "https://fixmystreet-1.onrender.com/api/issues/my",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
         setIssues(res.data);
       } catch (err) {
         console.error("Error fetching issues:", err);
