@@ -12,7 +12,8 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 
 app.get("/", (req, res) => res.send("API running..."));
-
+// Add this at the top of server.js
+const PORT = process.env.PORT || 5000;
 mongoose
   .connect(process.env.Mongo_URI)
   .then(() => {
